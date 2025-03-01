@@ -4,5 +4,5 @@ jobs:
   ci:
     permissions: { contents: read, id-token: write }
     uses: acrodrig/dots/.github/workflows/ci.yml@main
-    with: { publish: false }
+    with: { codecov: false }
     secrets: inherit
