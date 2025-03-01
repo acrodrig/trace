@@ -1,0 +1,23 @@
+{
+  "name": "@acr/hub",
+  "license": "MIT",
+  "exports": "./trace.js",
+  "compilerOptions": {
+    "lib": ["deno.ns", "deno.unstable", "dom", "dom.iterable", "dom.asynciterable"]
+  },
+  "fmt": {
+    "lineWidth": 180
+  },
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "src/trace.ts",
+      "src/trace.css"
+    ]
+  },
+  "tasks": {
+    "check": "deno check **/*.ts && deno lint && deno fmt --check",
+    "test": "deno test -A --unstable-kv --unstable-temporal"
+  }
+}
