@@ -11,7 +11,7 @@ const NS = (location?.pathname ?? "") + "/";
 
 export function init() {
   if (typeof document === "undefined") return;
-  if (localStorage.hasItem(NS + "advanced")) document.body.setAttribute("trace", "true");
+  if (localStorage.getItem(NS + "advanced")) document.body.setAttribute("trace", "true");
   if (localStorage.getItem(NS + "advanced")) document.body.setAttribute("advanced", "true");
 }
 
