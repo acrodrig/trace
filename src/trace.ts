@@ -16,8 +16,9 @@ export function init() {
 }
 
 // On document load init script
-addEventListener("domcontentloaded", () => {
+addEventListener("DOMContentLoaded", () => {
   const link = document.head.appendChild(document.createElement("link"));
+  link.setAttribute("rel", "stylesheet");
   link.setAttribute("href", new URL("trace.css", import.meta.url).href);
   const legend = document.body.appendChild(document.createElement("div"));
   legend.outerHTML = LEGEND;
