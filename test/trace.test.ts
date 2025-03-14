@@ -13,9 +13,9 @@ Object.assign(globalThis, { document: document });
 localStorage.clear();
 
 Deno.test("init", () => {
-  dispatchEvent(new Event("domcontentloaded"));
+  dispatchEvent(new Event("DOMContentLoaded"));
   const href = new URL("../src/trace.css", import.meta.url).href;
-  assertEquals(document.head.outerHTML, '<head><link href="' + href + '"></head>');
+  assertEquals(document.head.outerHTML, '<head><link rel="stylesheet" href="' + href + '"></head>');
   assertEquals(document.body.outerHTML, "<body>Hello!" + LEGEND + "</body>");
 });
 
