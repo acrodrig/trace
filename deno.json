@@ -1,5 +1,5 @@
 {
-  "name": "@acr/hub",
+  "name": "@acr/trace",
   "license": "MIT",
   "exports": "./mod.ts",
   "compilerOptions": {
