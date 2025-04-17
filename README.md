@@ -14,20 +14,28 @@
 
 ## Installation
 
-Include the following files in your project:
+Download `trace.js` and include the following files in your project:
 
 ```html
-<script src="trace.js" defer></script>
+<script src="trace.js" type="module" defer></script>
 ```
-
-Alternatively, you can install via a CDN (coming soon).
 
 ## Usage
 
-1. Load `trace.css` and `trace.js` in your HTML file.
-2. Double-click to enable trace mode.
+1. Load `trace.js` in your HTML file.
+2. Double-click to enable trace mode
 3. Use `Cmd + Shift + Click` (Mac) or `Ctrl + Shift + Click` (Windows) to enable advanced mode.
-4. Hover over elements with a `data-file` attribute to see file annotations.
+4. Hover over elements with a `data-file` attribute to see file annotations
+
+## Demo
+
+The demo uses the demo page from a CSS classless framework comparison [repo](https://github.com/adamerose/compare-classless-css).
+
+In order to run:
+
+```bash
+deno task demo
+```
 
 ## How It Works
 
