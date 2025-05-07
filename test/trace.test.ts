@@ -2,17 +2,30 @@
 
 import { assertEquals } from "jsr:@std/assert@^1";
 import { DOMParser } from "jsr:@b-fuze/deno-dom@^0";
-import { LEGEND } from "../src/trace.ts";
 
 // Set mock document ad its body as the root
 const html = "<html><body>Hello!</body></html>";
 const document = new DOMParser().parseFromString(html, "text/html");
 
-// Clear localStorage ad setup root
-Object.assign(globalThis, { document: document });
+// Copied and pasted from trace.ts
+const LEGEND = `
+  <div class="trace-bar" trace="">
+    <span style="color: var(--trace-blocks);">Blocks</span> /
+    <span style="color: var(--trace-heading);">Headings</span> /
+    <span style="color: var(--trace-inline);">Inline</span> /
+    <span style="color: var(--trace-image);">Image</span> /
+    <span style="color: var(--trace-object);">Canvas &amp; Video</span>
+  </div>`;
+
+// Clear localStorage and setup root
+Object.assign(globalThis, { document });
 localStorage.clear();
 
+// Importing the library simulates having the code ready to be initialized
+import "../src/trace.ts";
+
 Deno.test("init", () => {
+  // assertEquals(document.body.outerHTML, "<body>Hello!</body>");
   dispatchEvent(new Event("DOMContentLoaded"));
   const href = new URL("../src/trace.css", import.meta.url).href;
   assertEquals(document.head.outerHTML, '<head><link rel="stylesheet" href="' + href + '"></head>');
