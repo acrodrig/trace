@@ -5,4 +5,8 @@ const ts = Deno.readTextFileSync(import.meta.dirname + "/src/trace.ts");
 const css = Deno.readTextFileSync(import.meta.dirname + "/src/trace.css");
 
 // Remove all 'export' statements and replace CSS with style content
-Deno.writeTextFileSync("trace.js", ts.replace(/export\s+/, "").replace("/* CSS */", "\n" + css));
+Deno.writeTextFileSync("trace.js", ts
+  .replace(/export\s+/, "")
+  .replace("import.meta.url", "document.currentScript.src")
+  .replace("/* CSS */", "\n" + css)
+);

@@ -97,7 +97,7 @@ function init() {
 function addLink() {
   const link = document.createElement("link");
   link.setAttribute("rel", "stylesheet");
-  link.setAttribute("href", new URL("trace.css", import.meta.url).href);
+  link.setAttribute("href", new URL("trace.css", document.currentScript.src).href);
   if (DEBUG) console.debug("trace: addLink", link.href);
   return link;
 }
