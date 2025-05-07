@@ -87,7 +87,7 @@ const LEGEND = `
 const NS = (location?.pathname ?? "") + "/";
 const DEBUG = location?.hash?.toLowerCase() === "#debug";
 
-export function init() {
+function init() {
   if (DEBUG) console.debug("trace: init");
   if (typeof document === "undefined") return;
   if (localStorage.getItem(NS + "advanced")) document.body.setAttribute("trace", "true");
